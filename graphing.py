@@ -16,7 +16,7 @@ import matplotlib.pyplot as plt
 import math
 
 # Set font size and dark mode
-plt.rcParams.update({'font.size': 12})
+plt.rcParams.update({'font.size': 8})
 plt.style.use('dark_background')
 
 def graph_common_settings(i):
@@ -154,7 +154,7 @@ def graph_angles(i):
 
 def graph_earth_proximity():
     """
-        graph_earth_proximity - Plots the satelites attitude changes and Hohmann transfers to reach higher orbits
+        graph_earth_proximity - Plots the satelites altitude changes and Hohmann transfers to reach higher orbits
     """    
     fig = plt.figure(num=6, figsize=(8,8), dpi=100)
     ax = fig.add_subplot(1, 1, 1)

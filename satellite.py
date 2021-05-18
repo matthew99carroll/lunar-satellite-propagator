@@ -366,16 +366,14 @@ class Satellite(Mass):
         """
             calc_acceleration - Conditionals to determine which part of acceleration phase of the flight the satellite is in
         """
-        # if t[i+1] > self.procedure_turn_time and \
-        #    self.procedure_turn_angle - self.epsilon[i] > 0 and \
-        #    self.thrust_earth_in_circle_called == 0:
-        #        self.calc_accel_procedure_turn(i)
+        # Circularize initial orbit
         if t[i+1] > self.procedure_turn_time and \
             self.target_altitude + 500000 > self.alt_earth[i+1] > \
             self.target_altitude and \
             self.thrust_earth_in_circle_called == 0 and \
             self.thrust_earth_in_ellipse_called == 0:
                 self.calc_thrust_earth_circular(i)
+        # Perform an orbit raise to a new apoapsis
         elif t[i+1] > self.procedure_turn_time and \
             self.target_altitude + 500000 > self.alt_earth[i+1] > \
             self.target_altitude - 500000 and \
@@ -383,12 +381,14 @@ class Satellite(Mass):
             self.thrust_earth_in_ellipse_called == 0 and \
             self.thrust_earth_in_circle_called == 1:
                 self.calc_thrust_earth_elliptical(i, self.target_altitude_2)
+        # Circularize again
         elif t[i+1] > self.procedure_turn_time and \
              self.target_altitude_2 + 5e5 > self.alt_earth[i+1] > \
              self.target_altitude_2 and \
              self.thrust_earth_in_circle_called == 1 and \
              self.thrust_earth_in_ellipse_called == 1:
                  self.calc_thrust_earth_circular(i)
+        # Perform another orbit raise
         elif t[i+1] > self.procedure_turn_time and \
              self.target_altitude_2 + 5e5 > self.alt_earth[i+1] > \
              self.target_altitude_2 - 5e5 and \
@@ -396,12 +396,14 @@ class Satellite(Mass):
              self.thrust_earth_in_circle_called == 2 and \
              self.thrust_earth_in_ellipse_called == 1:
                  self.calc_thrust_earth_elliptical(i, (Moon.dE - Earth.radius))
+        # Final circularize
         elif t[i+1] > self.procedure_turn_time and \
              225 * (math.pi / 180) > self.epsilon[i] > 180 * (math.pi / 180) and \
              Moon.dE + 5e5 > self.alt_earth[i+1] > Moon.dE and \
              self.thrust_earth_in_circle_called == 2 and \
              self.thrust_moon_in_circle_called == 0:
                  self.calc_thrust_earth_circular(i)
+        # Check if in moons SOI, if so circularize orbit around moon
         elif t[i+1] > self.procedure_turn_time and \
              self.target_moon_altitude > self.alt_moon[i+1]:
                  self.calc_thrust_moon_circular(i)
