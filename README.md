@@ -26,20 +26,20 @@ This program is an implementation of a 3DOF propagator for low-earth-orbit and l
 
 ## Assumptions
 
-    - Mass of the satellite is constant i.e. not considering fuel expended during orbit changes.
-    - The earth and the moon are in the same inclination, and all no inclination changes are considered.
-    - Small amounts of friction in LEO are not considered.
-    - Gravitational forces acting on the satellite are from only the Earth and the Moon.
-    - The earth and the Moon are perfectly circular.
-    - The satellite is a simple point mass.
-    - The Moon's orbit around Earth is perfectly circular.
+  - Mass of the satellite is constant i.e. not considering fuel expended during orbit changes.
+  - The earth and the moon are in the same inclination, and all no inclination changes are considered.
+  - Small amounts of friction in LEO are not considered.
+  - Gravitational forces acting on the satellite are from only the Earth and the Moon.
+  - The earth and the Moon are perfectly circular.
+  - The satellite is a simple point mass.
+  - The Moon's orbit around Earth is perfectly circular.
 
 ## Installation
 
 You must have the following python libraries installed:
 
-    - matplotlib
-    - numpy
+  - matplotlib
+  - numpy
 
 ## Usage
 
