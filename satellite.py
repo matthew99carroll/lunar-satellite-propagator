@@ -10,7 +10,7 @@ File Description: Main methods for calculating the satellites state at any time
 """
 
 from celestial_body import Earth, Moon
-from global_params import z, G, t, dt, keyframe
+from global_params import z, G, t, dt, keyframe, PHOTON_PARAMETERS
 from mass import Mass
 import math
 
@@ -420,6 +420,6 @@ class Satellite(Mass):
             pass
 
 # Create a satellite object
-Photon = Satellite(100, Earth.radius + 1e6, 0.0)
-Photon.satellite_settings(False, 0, 0, 30, 1e6, 10e6, 1e6, \
-                         0.0, 0.0, 0.0, 0.001*(math.pi / 180), 1200)
+Photon = Satellite(PHOTON_PARAMETERS["MASS"], Earth.radius + PHOTON_PARAMETERS["EARTH_ALTITUDE"], 0.0)
+Photon.satellite_settings(False, 0, 0, 30, PHOTON_PARAMETERS["EARTH_ALTITUDE"], 10e6, PHOTON_PARAMETERS["MOON_ALTITUDE"], \
+                         0.0, 0.0, 0.0, 0.001*(math.pi / 180), PHOTON_PARAMETERS["THRUST"])
