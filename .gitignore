@@ -4,6 +4,7 @@ out
 log.log
 dist/*
 build/*
+.vscode/*
 *.csv
 **/node_modules
 *.pyc
