@@ -2,28 +2,6 @@
 
 This program is an implementation of a 3DOF propagator for low-earth-orbit and lunar trajectories, and uses minimum energy Hohmann transfers to carry out the orbit raising. All equations used in this are derived from first principles.
 
-<p align="center">
-  <img src="docs/1.png" width="500" />
-  <img src="docs/3.png" width="500" />
-</p>
-
-<p align="center"><img src="docs/2.png" width="1000" /></p>
-
-<p align="center">
-  <img src="docs/4.png" width="500" />
-  <img src="docs/5.png" width="500" />
-</p>
-
-<p align="center">
-  <img src="docs/6.png" width="500" />
-  <img src="docs/7.png" width="500" />
-</p>
-
-<p align="center">
-  <img src="docs/8.png" width="500" />
-  <img src="docs/9.png" width="500" />
-</p>
-
 ## Assumptions
 
   - Mass of the satellite is constant i.e. not considering fuel expended during orbit changes.
